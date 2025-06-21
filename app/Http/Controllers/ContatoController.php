@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class ContatoController extends Controller
 {
-    function Contato() {
-        return view('site.contato');
+    public function Contato()
+    {
+        return view('site.contato', ['titulo' => 'Contato - teste']);
     }
 }

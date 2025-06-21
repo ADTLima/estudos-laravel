@@ -3,11 +3,37 @@
 {{-- @dd($fornecedores);  --}}
 
 @isset($fornecedores)
-    @for ($i = 0; isset($fornecedores[$i]); $i++)
-        Fornecedor: {{ $fornecedores[$i]['nome'] }} <br>
-        Status: {{ $fornecedores[$i]['status']}} <br>
-        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'nao informado' }} <br>
-        Telefone: ({{ $fornecedores[s$i]['ddd'] ?? 'nao informado' }}) {{ $fornecedores[0]['telefone'] ?? 'nao informado' }} <br><br>
+
+    @forelse ($fornecedores as $i => $fornecedor)
+
+        Interação: {{ $loop->iteration }}
+        <br>
+        Fornecedor: {{ $fornecedor['nome'] }}
+        <br>
+        Status: {{ $fornecedor['status']}}
+        <br>
+        CNPJ: {{ $fornecedor['cnpj'] ?? 'nao informado' }}
+        <br>
+        Telefone: ({{ $fornecedor['ddd'] ?? 'nao informado' }}) {{ $fornecedor['telefone'] ?? 'nao informado' }}
+        <br>
+        <br>
+        @if ($loop->first)
+            Primeira iteração
+            <br>
+            
+        @endif
+        @if ($loop->last)
+            Ultima iteração
+            <br>
+        @endif
         <hr>
-    @endfor
+        @if ($loop->last)
+            Total de registros: {{ $loop->count }}
+        @endif
+        
+    @empty
+        
+        <p>Nenhum fornecedor cadastrado.</p>
+
+    @endforelse
 @endisset
