@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
+
 class ContatoController extends Controller
 {
-    public function Contato()
+    public function Contato(Request $request)
     {
-        //var_dump($_GET);
-        var_dump($_POST);
+        dd($request);
 
         return view('site.contato', ['titulo' => 'Contato']);
     }
