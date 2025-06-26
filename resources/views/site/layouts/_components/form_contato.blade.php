@@ -19,3 +19,7 @@
     <br>
     <button type="submit" class="{{ $classe }}">ENVIAR</button>
 </form>
+
+<pre>
+    {{  $errors->any() ? 'Existem erros de validação' : 'Não existem erros de validação' }}
+</pre>
