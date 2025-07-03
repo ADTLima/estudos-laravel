@@ -20,6 +20,12 @@ class LogAcessoMiddleware
         $rota = $request->getRequestUri();
         LogAcesso::create(['log' => "IP: $ip requisitou a Rota: $rota"]);
 
-        return $next($request);
+        //return $next($request);
+
+        $resposta = $next($request);
+
+        $resposta->setStatusCode(201, 'Requisição registrada com sucesso');
+
+        return $resposta;
     }
 }

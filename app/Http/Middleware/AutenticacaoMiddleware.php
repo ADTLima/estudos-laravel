@@ -13,8 +13,21 @@ class AutenticacaoMiddleware
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $metodo_autenticacao, $perfil)
     {
+        if ($metodo_autenticacao == 'padrao') {
+            echo "Método de autenticação: $metodo_autenticacao e usuario $perfil <br>";
+        }
+
+        if ($metodo_autenticacao == 'ldap') {
+            echo "Método de autenticação: $metodo_autenticacao e usuario $perfil <br>";
+        }
+
+        if ($perfil == 'visitante') {
+            echo 'exibir apenas o perfil do visitante <br>';
+        }
+
+        echo "Método de autenticação: $metodo_autenticacao <br>";
         // Verifica se o usuário está autenticado
         if (false) {
             return $next($request);
