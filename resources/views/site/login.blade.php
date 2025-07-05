@@ -22,6 +22,7 @@
                     <br>
                     <button type="submit" class="borda-preta">Acessar</button>
                 </form>
+                {{ isset($erro) && $erro != '' ? $erro : '' }}
                 <br>
                 <span>Não tem conta? <a href=" ">Cadastre-se</a></span>
             </div>

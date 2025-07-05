@@ -15,24 +15,11 @@ class AutenticacaoMiddleware
      */
     public function handle($request, Closure $next, $metodo_autenticacao, $perfil)
     {
-        if ($metodo_autenticacao == 'padrao') {
-            echo "Método de autenticação: $metodo_autenticacao e usuario $perfil <br>";
-        }
-
-        if ($metodo_autenticacao == 'ldap') {
-            echo "Método de autenticação: $metodo_autenticacao e usuario $perfil <br>";
-        }
-
-        if ($perfil == 'visitante') {
-            echo 'exibir apenas o perfil do visitante <br>';
-        }
-
-        echo "Método de autenticação: $metodo_autenticacao <br>";
-        // Verifica se o usuário está autenticado
-        if (false) {
+        session_start();
+        if (isset($_SESSION['email']) && $_SESSION['email'] != '') {
             return $next($request);
         } else {
-            return Response('acesso negado, rota precisa de autenticacao');
+            return redirect()->route('site.login', ['erro' => 2]);
         }
     }
 }
