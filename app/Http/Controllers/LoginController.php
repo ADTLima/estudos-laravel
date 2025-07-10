@@ -49,7 +49,7 @@ class LoginController extends Controller
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('app.clientes');
+            return redirect()->route('app.home');
         } else {
             return redirect()->route('site.login', ['erro' => 1])
                 ->with('erro', 'Usuário e/ou senha inválidos');
