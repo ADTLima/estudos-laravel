@@ -2,6 +2,7 @@
 
     <div class="logo">
         <img src="{{ asset('img/logo.png') }}">
+        {{ print_r($_SESSION['nome'])}}
     </div>
 
     <div class="menu">
