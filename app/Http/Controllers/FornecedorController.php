@@ -12,6 +12,7 @@ class FornecedorController extends Controller
         return view('app.fornecedor.index');
     }
 
+    //lista fornecedores index
     public function listar(Request $request)
     {
         $fornecedores = Fornecedor::where('nome', 'like', '%'.$request->input('nome').'%')
