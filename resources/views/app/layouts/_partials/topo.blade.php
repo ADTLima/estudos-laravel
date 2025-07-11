@@ -1,6 +1,6 @@
 <div class="topo">
 
-    <div class="logo">
+    <div class="logo" style="display:inline-block;">
         <img src="{{ asset('img/logo.png') }}">
         {{ print_r($_SESSION['nome'])}}
     </div>
